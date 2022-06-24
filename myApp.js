@@ -12,7 +12,12 @@ app.get("/",(req,res)=>
 
 app.get("/json",(req,res)=>
   {
-    res.json({"message": "Hello json"})
+    const mySecret = process.env['MESSAGE_STYLE']
+    if (mySecret=="uppercase") {
+      res.json({"message": "HELLO JSON"});
+    } else {
+      res.json({"message": "Hello json"});
+    }
   });
 
 
